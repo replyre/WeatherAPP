@@ -108,13 +108,17 @@ toggle.addEventListener("change", () => {
 currentLocation.addEventListener("click", () => {
   loading.style.display = "block";
   container.style.height = "200px";
+  error.style.display = "none";
+  error.classList.remove("fade-in");
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
+      document.querySelector(".search-box input").value = "";
       const currentBox = document.querySelector(".current-location");
       currentBox.style.display = "none";
+
       const APIkey = `9dbddeca46450dec085850e97ca3c807`;
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${APIkey}`;
       fetch(apiUrl)
