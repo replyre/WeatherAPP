@@ -1,5 +1,3 @@
-
-<img src="https://github.com/replyre/WeatherAPP/blob/main/images/Screenshot%20Weather%20App.png"/>
 # Weather App
 ## Description:
 The weather app shows the weather information that it will get from an API which includes:
@@ -17,4 +15,6 @@ The weather app shows the weather information that it will get from an API which
 •	Use Of OpenWeatherAPI to access the real-time weather updates and Unsplash API for beautiful background makes it both dynamic and beautiful.
 
 
+
+<img src="https://github.com/replyre/WeatherAPP/blob/main/images/Screenshot%20Weather%20App.png"/>
 
