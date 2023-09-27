@@ -290,6 +290,17 @@ input:checked + .slider:before {
   animation-delay: 0.5s;
 }
 
+.loading {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.loading img {
+  height: 50px;
+}
+
 @keyframes fadeIn {
   to {
     scale: 1;

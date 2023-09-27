@@ -5,10 +5,15 @@ const weatherDetails = document.querySelector(".weather-details");
 const error = document.querySelector(".not-found");
 const toggle = document.querySelector(".toggle");
 const currentLocation = document.querySelector(".current-search");
+const loading = document.querySelector(".loading");
 
 toggle.style.display = "none";
+
+loading.style.display = "none";
 let temp;
 search.addEventListener("click", () => {
+  loading.style.display = "block";
+  container.style.height = "200px";
   const APIkey = `9dbddeca46450dec085850e97ca3c807`;
   const city = document.querySelector(".search-box input").value;
   if (city === "") {
@@ -16,7 +21,7 @@ search.addEventListener("click", () => {
   }
 
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}`
   )
     .then((res) => res.json())
     .then((json) => {
@@ -28,8 +33,8 @@ search.addEventListener("click", () => {
         error.style.display = "block";
         const currentBox = document.querySelector(".current-location");
         currentBox.style.display = "flex";
-
         error.classList.add("fade-in");
+        loading.style.display = "none";
         return;
       }
 
@@ -85,6 +90,7 @@ search.addEventListener("click", () => {
       container.style.height = "650px";
       toggle.style.display = "";
       toggle.classList.add("fade-in");
+      loading.style.display = "none";
     });
 });
 
@@ -100,6 +106,9 @@ toggle.addEventListener("change", () => {
 });
 
 currentLocation.addEventListener("click", () => {
+  loading.style.display = "block";
+  container.style.height = "200px";
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
@@ -118,6 +127,8 @@ currentLocation.addEventListener("click", () => {
             toggle.style.display = "none";
             error.style.display = "block";
             error.classList.add("fade-in");
+            loading.style.display = "none";
+
             return;
           }
 
@@ -174,6 +185,7 @@ currentLocation.addEventListener("click", () => {
           container.style.height = "650px";
           toggle.style.display = "";
           toggle.classList.add("fade-in");
+          loading.style.display = "none";
         });
     });
   } else {
