@@ -14,7 +14,7 @@ body {
   align-items: center;
   font-family: "Poppins", sans-serif;
   background: linear-gradient(to right bottom, #ce1c09, #8e0e00, #1f1c18);
-  background-image: url("https://source.unsplash.com/1600x900/?landscape");
+  background-image: url("https://picsum.photos/1600/900");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
